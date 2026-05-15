@@ -1,0 +1,24 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "A contact form submission from a potential client.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Full name of the contact" },
+        "businessName": { "type": "string", "description": "Name of the business" },
+        "phone": { "type": "string", "description": "Phone number" },
+        "email": { "type": "string", "description": "Email address" },
+        "message": { "type": "string", "description": "The message inquiry" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the lead was created" }
+      },
+      "required": ["name", "businessName", "phone", "email", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Collection of contact form submissions."
+    }
+  }
+}
